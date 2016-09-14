@@ -25,15 +25,10 @@
                     </td>
                 </tr>
             </table>
-            <div class="panel-footer">
-                <span>
-                    <a href="#">Like</a>
-                </span>
-                <span class="pull-right">
-                    @if ( $post->user == Auth::user() || Auth::user()->admin )
-                        <a href="{{ route('posts.edit', $post) }}">Edit</a>
-                    @endif
-                </span>
+            <div class="panel-footer text-right">
+                @if ( $post->user == Auth::user() || Auth::user()->admin )
+                    <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                @endif
             </div>
         </div>
     </article>
@@ -57,9 +52,6 @@
                     </td>
                 </tr>
             </table>
-            <div class="panel-footer">
-                <a href="#">Like</a>
-            </div>
         </div>
     @endforeach
 </div>
