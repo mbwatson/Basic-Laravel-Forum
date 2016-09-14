@@ -3,8 +3,8 @@
 @section('title', 'Posts')
 
 @section('content')
-    <div class="col-xs-2 text-center">
-        <a class="btn btn-block btn-primary" href="{{ route('posts.create') }}">Create New Post</a>
+    <div class="hidden-xs col-sm-2 text-center">
+        <a class="btn btn-block btn-primary" href="{{ route('posts.create') }}">New Post</a>
         <h4>Channels</h4>
         @if (Request::is('posts/channels/*'))
             <a class="btn btn-block btn-default" href="{{ route('posts.index') }}">Everything</a>
@@ -13,13 +13,19 @@
         @endif
         @foreach ($channels as $channel)
             @if (Request::is('posts/channels/'.$channel->slug))
-                <a class="btn btn-block btn-info" href="{{ route('posts.channel', $channel) }}">{{ $channel->title }}</a>
+                <a class="btn btn-block btn-info" href="{{ route('posts.channel', $channel) }}">
+                    {!! $channel->colorBlock() !!}
+                    {{ $channel->title }}
+                </a>
             @else
-                <a class="btn btn-block btn-default" href="{{ route('posts.channel', $channel) }}">{{ $channel->title }}</a>
+                <a class="btn btn-block btn-default" href="{{ route('posts.channel', $channel) }}">
+                    {!! $channel->colorBlock() !!}
+                    {{ $channel->title }}
+                </a>
             @endif
         @endforeach
     </div>
-    <div class="col-xs-10 posts">
+    <div class="col-xs-12 col-sm-10 posts">
         @if (count($posts) > 0)
             @foreach ($posts as $post)
                 <div class="panel panel-default post">
@@ -38,9 +44,10 @@
                                 </div>
                             </td>
                             <td class="channel" width="10%">
+                                {!! $post->channel->colorBlock() !!}
                                 <a href="{{ route('posts.channel', $post->channel) }}">{{ $post->channel->title }}</a>
                             </td>
-                            <td class="meta text-center" width="10%">
+                            <td class="text-center" width="10%">
                                 {{ $post->comments->count() }}
                             </td>
                         </tr>

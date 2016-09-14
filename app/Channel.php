@@ -55,4 +55,9 @@ class Channel extends Model
         return 'slug';
     }
 
+    public function colorBlock()
+    {
+        return '<span style="font-size: 125%; color: ' . $this->color . ';">&#9724;</span>';
+    }
+
 }
