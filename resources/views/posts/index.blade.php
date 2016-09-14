@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="meta">
                                     Posted: {{ $post->created_at->diffForHumans() }} by <a href="{{ route('users.show', $post->user) }}">{{ $post->user->name }}</a><br>
-                                    Last Activity: {{ $post->updated_at->diffForHumans() }}
+                                    Latest Activity: {{ $post->updated_at->diffForHumans() }}
                                 </div>
                             </td>
                             <td class="channel" width="10%">
