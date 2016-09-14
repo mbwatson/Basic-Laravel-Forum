@@ -50,7 +50,7 @@
                     </td>
                     <td class="body">
                         <p>
-                            <a href="{{ route('users.show', $post->user) }}">{{ $comment->user->name }}</a>
+                            <a href="{{ route('users.show', $comment->user) }}">{{ $comment->user->name }}</a>
                             - {{ $comment->created_at->diffForHumans() }}
                         </p>
                         {!! nl2br(e($comment->body)) !!}
