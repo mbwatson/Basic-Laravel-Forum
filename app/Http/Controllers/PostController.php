@@ -48,7 +48,7 @@ class PostController extends Controller
      */
     public function create() {
     	return view('posts.create', [
-            'channels' => Channel::all()->pluck('title', 'id')
+            'channels' => Channel::all()->pluck('title', 'id')->toArray()
         ]);
     }
 
@@ -93,7 +93,7 @@ class PostController extends Controller
     public function edit(Post $post) {
         return view('posts.edit', [
             'post' => $post,
-            'channels' => Channel::all()->pluck('title', 'id')
+            'channels' => Channel::all()->pluck('title', 'id')->toArray()
         ]);
     }
 

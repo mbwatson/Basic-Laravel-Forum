@@ -57,7 +57,7 @@ class Channel extends Model
 
     public function colorBlock()
     {
-        return '<span style="font-size: 125%; color: ' . $this->color . ';">&#9724;</span>';
+        return '<span class="hidden-xs" style="font-size: 125%; color: ' . $this->color . ';">&#9641;</span>';
     }
 
 }

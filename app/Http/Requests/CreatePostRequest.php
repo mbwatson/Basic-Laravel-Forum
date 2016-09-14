@@ -25,6 +25,7 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
+            'channel_id' => 'required',
             'title' => 'required|min:5|max:50',
             'body' => 'required|max:5000'
         ];

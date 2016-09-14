@@ -34,7 +34,7 @@
                             <td class="user-info" width="1%">
                                 <a href="{{ route('users.show', $post->user) }}"><img src="{{ Gravatar::get($post->user->email, ['size' => 64]) }}" class="avatar"></a>
                             </td>
-                            <td width="80%">
+                            <td width="70%">
                                 <div class="title">
                                     <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
                                 </div>
@@ -43,7 +43,7 @@
                                     Latest Activity: {{ $post->updated_at->diffForHumans() }}
                                 </div>
                             </td>
-                            <td class="channel" width="10%">
+                            <td class="channel" width="19%">
                                 {!! $post->channel->colorBlock() !!}
                                 <a href="{{ route('posts.channel', $post->channel) }}">{{ $post->channel->title }}</a>
                             </td>

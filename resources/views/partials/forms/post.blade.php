@@ -1,5 +1,5 @@
 <div class="form-group">
-    {{ Form::select('channel_id', $channels, isset($post) ? $post->channel_id : null, ['class' => 'form-control']) }}
+    {{ Form::select('channel_id', (['' => 'Select a Channel'] + $channels), isset($post) ? $post->channel_id : null, ['class' => 'form-control', 'data-placeholder' => 'Select a Channel']) }}
 </div>
 <div class="form-group">
     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter Title']) }}
