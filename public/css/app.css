@@ -5801,4 +5801,7 @@ article.post .body {
   font-size: 80%;
   padding: 5px 20px; }
 
+textarea {
+  max-width: 100%; }
+
 /*# sourceMappingURL=app.css.map */
