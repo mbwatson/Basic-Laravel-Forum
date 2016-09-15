@@ -91,6 +91,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post) {
+        if ( (Auth::user() != $post->user && !Auth::user()->admin) ) {
+            return redirect()->back();
+        }
+        
         return view('posts.edit', [
             'post' => $post,
             'channels' => Channel::all()->pluck('title', 'id')->toArray()
@@ -103,6 +107,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Post $post, CreatePostRequest $request) {
+
+        if ( (Auth::user() != $post->user && !Auth::user()->admin) ) {
+            return redirect()->back();
+        }
 
         $post->title = $request->title;
         $post->body = $request->body;
