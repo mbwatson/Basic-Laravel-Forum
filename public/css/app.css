@@ -5811,4 +5811,7 @@ textarea {
 .post:hover {
   background-color: #f5f5f9; }
 
+.breadcrumb {
+  background-color: transparent; }
+
 /*# sourceMappingURL=app.css.map */

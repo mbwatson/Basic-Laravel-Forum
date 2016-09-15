@@ -39,9 +39,7 @@
     </script>
 </head>
 <body>
-
     @include('partials.nav')
-
     <div class="container">
         <div class="row">
             @yield('breadcrumbs')
