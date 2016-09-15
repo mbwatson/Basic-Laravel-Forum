@@ -11,6 +11,7 @@
 	        	@foreach ($channels as $channel)
 	        		<tr>
 	        			<td>
+	        				{!! $channel->colorBlock() !!}
 		        			{{ $channel->title }} - 
 		        			<a href="#">Edit</a> - 
 	        				<a href="#">Delete</a>
