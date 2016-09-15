@@ -121,14 +121,13 @@ class PostController extends Controller
      * @param  App\Post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
-    {
-        if ( (Auth::user() != $post->user) ) {
+    public function destroy(Post $post) {
+        if ( (Auth::user() != $post->user && !Auth::user()->admin) ) {
             return redirect()->back();
         }
         $post->delete();
         
-        session()->flash('flash_message', 'Post successfully deleted!');
+        session()->flash('flash_message', 'Post "'.$post->title.'" successfully deleted!');
 
         return redirect()->route('posts.index');
     }

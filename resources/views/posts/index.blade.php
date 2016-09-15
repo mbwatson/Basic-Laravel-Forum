@@ -13,6 +13,7 @@
 @section('content')
     <div class="hidden-xs col-sm-2 text-center">
         <a class="btn btn-block btn-primary" href="{{ route('posts.create') }}">New Post</a>
+        
         <h4>Channels</h4>
         @if (Request::is('posts/channels/*'))
             <a class="btn btn-block btn-default" href="{{ route('posts.index') }}">Everything</a>
