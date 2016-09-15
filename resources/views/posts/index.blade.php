@@ -43,11 +43,11 @@
                                     Latest Activity: {{ $post->updated_at->diffForHumans() }}
                                 </div>
                             </td>
-                            <td class="channel" width="19%">
+                            <td class="channel" style="min-width: 100px;">
                                 {!! $post->channel->colorBlock() !!}
                                 <a href="{{ route('posts.channel', $post->channel) }}">{{ $post->channel->title }}</a>
                             </td>
-                            <td class="text-center" width="10%">
+                            <td class="text-center" style="min-width: 50px;">
                                 {{ $post->comments->count() }}
                             </td>
                         </tr>
