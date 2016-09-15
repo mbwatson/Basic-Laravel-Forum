@@ -2,6 +2,14 @@
 
 @section('title', 'Posts')
 
+@section('breadcrumbs')
+    @if ( isset($channel) )
+        {!! Breadcrumbs::render('posts.channel', $channel) !!}
+    @else
+        {!! Breadcrumbs::render('posts.all') !!}
+    @endif
+@endsection
+
 @section('content')
     <div class="hidden-xs col-sm-2 text-center">
         <a class="btn btn-block btn-primary" href="{{ route('posts.create') }}">New Post</a>

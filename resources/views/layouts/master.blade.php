@@ -44,6 +44,7 @@
 
     <div class="container">
         <div class="row">
+            @yield('breadcrumbs')
             @include('partials.alerts')
             @yield('content')
         </div>
