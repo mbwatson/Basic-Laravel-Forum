@@ -20,7 +20,7 @@ class PostsTableSeeder extends Seeder
         $users = App\User::all()->pluck('id')->toArray();
         $channels = App\Channel::all()->pluck('id')->toArray();
 
-        foreach(range(1,10) as $index){
+        foreach(range(1,25) as $index){
             $post = App\Post::create([
                 'title' => $faker->realText(25),
                 'body' => $faker->realText(2500),
