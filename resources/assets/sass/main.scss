@@ -12,20 +12,29 @@
 }
 
 article.post {
+	.avatar {
+		padding: 20px;
+	}
+
 	.title {
 		font-size: 300%;
 		padding-left: 20px;
 		width: 100%;
 		padding-bottom: 1px;
 	}
+
 	.body {
-		padding-top: 0;
+		padding: 0 20px 20px 0;
 	}
 }
 
 .comments, .posts {
 	.post {
 		margin-bottom: 5px;
+
+		.avatar {
+			padding: 20px;
+		}
 	}
 }
 
@@ -34,7 +43,6 @@ article.post {
 	font-weight: 600;
 }
 .user-info {
-	padding: 20px 0 20px 20px;
 	text-align: center;
 	vertical-align: top;
 }
@@ -44,7 +52,6 @@ article.post {
 }
 .meta {
 	font-size: 80%;
-	padding: 5px 20px;
 }
 
 textarea {
@@ -67,3 +74,26 @@ textarea {
 		}
 	}
 }
+
+.btn {
+	transition: all 0.25s ease;
+}
+.btn-channel {
+	text-align: left;
+	border-width: 0 0 0 10px;
+	box-shadow: 0 0 2px #999;
+}
+
+
+.channel-active {
+	border-left-width: 15px;
+}
+
+.channel-inactive {
+	border-left-width: 10px;
+}
+
+.channel-inactive:hover {
+	border-left-width: 15px;
+}
+

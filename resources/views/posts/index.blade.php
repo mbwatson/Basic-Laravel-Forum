@@ -22,13 +22,11 @@
         @endif
         @foreach ($channels as $channel)
             @if (Request::is('posts/channels/'.$channel->slug))
-                <a class="btn btn-block btn-info" href="{{ route('posts.channel', $channel) }}">
-                    {!! $channel->colorBlock() !!}
+                <a class="btn btn-block btn-default btn-channel channel-active" style="border-color: {{ $channel->color }};" ref="{{ route('posts.channel', $channel) }}">
                     {{ $channel->title }}
                 </a>
             @else
-                <a class="btn btn-block btn-default" href="{{ route('posts.channel', $channel) }}">
-                    {!! $channel->colorBlock() !!}
+                <a class="btn btn-block btn-default btn-channel channel-inactive" style="border-color: {{ $channel->color }};" href="{{ route('posts.channel', $channel) }}">
                     {{ $channel->title }}
                 </a>
             @endif
@@ -40,7 +38,7 @@
                 <div class="panel panel-default post">
                     <table width="100%">
                         <tr>
-                            <td class="user-info" width="1%">
+                            <td class="user-info hidden-xs" width="1%">
                                 <a href="{{ route('users.show', $post->user) }}"><img src="{{ Gravatar::get($post->user->email, ['size' => 64]) }}" class="avatar"></a>
                             </td>
                             <td width="70%">

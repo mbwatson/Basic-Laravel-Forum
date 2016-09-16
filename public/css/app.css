@@ -5775,6 +5775,9 @@ button.close {
   padding-left: 20px;
   width: 100%; }
 
+article.post .avatar {
+  padding: 20px; }
+
 article.post .title {
   font-size: 300%;
   padding-left: 20px;
@@ -5782,17 +5785,18 @@ article.post .title {
   padding-bottom: 1px; }
 
 article.post .body {
-  padding-top: 0; }
+  padding: 0 20px 20px 0; }
 
 .comments .post, .posts .post {
   margin-bottom: 5px; }
+  .comments .post .avatar, .posts .post .avatar {
+    padding: 20px; }
 
 .title {
   font-size: 150%;
   font-weight: 600; }
 
 .user-info {
-  padding: 20px 0 20px 20px;
   text-align: center;
   vertical-align: top; }
 
@@ -5801,8 +5805,7 @@ article.post .body {
   vertical-align: top; }
 
 .meta {
-  font-size: 80%;
-  padding: 5px 20px; }
+  font-size: 80%; }
 
 textarea {
   max-width: 100%; }
@@ -5816,5 +5819,23 @@ textarea {
 
 .breadcrumb {
   background-color: transparent; }
+
+.btn {
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+
+.btn-channel {
+  text-align: left;
+  border-width: 0 0 0 10px;
+  box-shadow: 0 0 2px #999; }
+
+.channel-active {
+  border-left-width: 15px; }
+
+.channel-inactive {
+  border-left-width: 10px; }
+
+.channel-inactive:hover {
+  border-left-width: 15px; }
 
 /*# sourceMappingURL=app.css.map */
