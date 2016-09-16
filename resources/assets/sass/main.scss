@@ -1,30 +1,45 @@
+.breadcrumb {
+	background-color: transparent;
+	.li {
+		a {
+
+		}
+	}
+}
+
+
 .avatar {
 	border-radius: 50%;
 }
 
 .user {
+	.avatar {
+		margin: 20px 0 0 20px;
+	}
+
 	.title {
 		font-size: 200%;
 		padding-top: 10px;
-		padding-left: 20px;
 		width: 100%;
+	}
+
+	.body {
 	}
 }
 
 article.post {
 	.avatar {
-		padding: 20px;
+		margin: 20px 0 0 20px;
 	}
 
 	.title {
 		font-size: 300%;
-		padding-left: 20px;
 		width: 100%;
+		padding-left: 20px;
 		padding-bottom: 1px;
 	}
 
 	.body {
-		padding: 0 20px 20px 0;
 	}
 }
 
@@ -33,7 +48,11 @@ article.post {
 		margin-bottom: 5px;
 
 		.avatar {
-			padding: 20px;
+			margin: 20px;
+		}
+
+		.body {
+			padding-left: 0;
 		}
 	}
 }
@@ -64,15 +83,6 @@ textarea {
 
 .post:hover {
 	background-color: #f5f5f9;
-}
-
-.breadcrumb {
-	background-color: transparent;
-	.li {
-		a {
-
-		}
-	}
 }
 
 .btn {
