@@ -33,5 +33,9 @@ Route::resource('/users', 'UserController', [
 Route::get('/account/edit',		[ 'uses' => 'AccountController@edit',   'as' => 'account.edit' ]);
 Route::patch('/account/update', [ 'uses' => 'AccountController@update', 'as' => 'account.update' ]);
 
-Route::get('/admin', [ 'uses' => 'AdminController@index', 'as' => 'admin.index' ]);
-Route::get('/admin/channels', [ 'uses' => 'AdminController@channelsIndex', 'as' => 'admin.channels.index' ]);
+
+Route::group(['prefix' => '/admin'], function () {
+	Route::get('/', [ 'uses' => 'AdminController@index', 'as' => 'admin.index' ]);
+	Route::get('/posts', [ 'uses' => 'AdminController@postsIndex', 'as' => 'admin.posts.index' ]);
+	Route::get('/channels', [ 'uses' => 'AdminController@channelsIndex', 'as' => 'admin.channels.index' ]);
+});

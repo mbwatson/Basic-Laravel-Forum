@@ -8,7 +8,7 @@
         </div>
 
         <div class="panel-body">
-        	<table class="post">
+        	<table>
         		<tr>
         			<td class="user-info">
                         <img src="{{ Gravatar::get(Auth::user()->email, ['size' => 120]) }}" class="avatar">

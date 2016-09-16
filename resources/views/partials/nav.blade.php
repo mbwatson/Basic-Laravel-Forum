@@ -40,8 +40,8 @@
                             <li role="separator" class="divider"></li>
                             @if (Auth::user()->admin)
                                 <li><a href="{{ route('admin.index') }}">Admin Area</a></li>
+                                <li role="separator" class="divider"></li>
                             @endif
-                            <li role="separator" class="divider"></li>
                             <li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
