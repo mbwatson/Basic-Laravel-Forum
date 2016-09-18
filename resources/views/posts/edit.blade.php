@@ -3,24 +3,24 @@
 @section('breadcrumbs', Breadcrumbs::render('posts.edit', $post))
 
 @section('content')
-<div class="col-xs-12">
-    <div class="panel panel-default">
-        <div class="panel-heading">Edit Post</div>
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Edit Post</div>
 
-        <div class="panel-body">
-            {!! Form::model($post, [ 'method' => 'PATCH', 'route' => ['posts.update', $post] ]) !!}
-                @include('partials.forms.post')
-            {!! Form::close() !!}
-        </div>
-
-        <div class="panel-footer text-right">
-        	<!-- Delete -->
-            @if (Auth::user() == $post->user || Auth::user()->admin)
-                {!! Form::open(['route' => ['posts.destroy', $post], 'method' => 'delete']) !!}
-                    <button type="submit" class="btn btn-link" title="Delete Post" data-toggle="tooltip" data-placement="bottom" style="padding: 0;">Delete</button>
+            <div class="panel-body">
+                {!! Form::model($post, [ 'method' => 'PATCH', 'route' => ['posts.update', $post] ]) !!}
+                    @include('partials.forms.post')
                 {!! Form::close() !!}
-            @endif
+            </div>
+
+            <div class="panel-footer text-right">
+                <!-- Delete -->
+                @if (Auth::user() == $post->user || Auth::user()->admin)
+                    {!! Form::open(['route' => ['posts.destroy', $post], 'method' => 'delete']) !!}
+                        <button type="submit" class="btn btn-link" title="Delete Post" data-toggle="tooltip" data-placement="bottom" style="padding: 0;">Delete</button>
+                    {!! Form::close() !!}
+                @endif
+            </div>
         </div>
     </div>
-</div>
 @endsection
