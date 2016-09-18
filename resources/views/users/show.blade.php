@@ -14,8 +14,7 @@
                 </tr>
                 <tr>
                     <td class="body">
-                        First Name: {{ $user->first_name }} <br>
-                        Last Name: {{ $user->last_name }} <br>
+                        Name: {{ $user->full_name }} <br>
                         Location: {{ $user->location }} <br>
                         Email: {{ $user->email }} <br>
                         <hr>
