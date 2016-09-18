@@ -181,6 +181,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+
     ],
 
     /*

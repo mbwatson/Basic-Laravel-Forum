@@ -5,11 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
     use Notifiable;
     use Sluggable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +21,13 @@ class Post extends Model
     protected $fillable = [
         'title', 'body'
     ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * Return the sluggable configuration array for this model.

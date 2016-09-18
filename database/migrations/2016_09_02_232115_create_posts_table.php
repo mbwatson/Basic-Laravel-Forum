@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->integer('channel_id');
             $table->integer('user_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
