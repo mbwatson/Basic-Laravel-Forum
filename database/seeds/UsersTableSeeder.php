@@ -19,12 +19,12 @@ class UsersTableSeeder extends Seeder
 		$seeds = array(
 			array(
 				'id' => 1,
-				'name' => 'mwatson',
-				'slug' => 'mwatson',
-				'first_name' => 'Matt',
-				'last_name' => 'Watson',
-				'location' => 'Raleigh, NC',
-				'email' => 'email@ddress.com',
+				'name' => 'admin',
+				'slug' => 'admin',
+				'first_name' => 'John',
+				'last_name' => 'Doe',
+				'location' => 'Anytown, USA',
+				'email' => 'email@example.com',
 				'password' => Hash::make('password'),
 				'admin' => true
 			),
@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
 				'first_name' => $faker->firstName,
 				'last_name' => $faker->lastName,
 				'location' => $faker->city . ', ' . $faker->country,
-				'email' => 'email@ddress.net',
+				'email' => 'email@example.net',
 				'password' => Hash::make('password'),
 				'admin' => false
 			)
