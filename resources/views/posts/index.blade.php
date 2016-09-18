@@ -39,7 +39,7 @@
                     <table width="100%">
                         <tr>
                             <td class="user-info hidden-xs" width="1%">
-                                <a href="{{ route('users.show', $post->user) }}"><img src="{{ Gravatar::get($post->user->email, ['size' => 64]) }}" class="avatar"></a>
+                                <a href="{{ route('users.show', $post->user) }}"><img src="{{ Gravatar::get($post->user->email, ['size' => 55]) }}" class="avatar"></a>
                             </td>
                             <td width="70%">
                                 <div class="title">
