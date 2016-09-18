@@ -14,22 +14,13 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
    		DB::table('posts')->delete();
-
-   		$faker = Faker\Factory::create();
-   		
-        $users = App\User::all()->pluck('id')->toArray();
-        $channels = App\Channel::all()->pluck('id')->toArray();
-
-        foreach(range(1,25) as $index){
-            $post = App\Post::create([
-                'title' => $faker->realText(25),
-                'body' => $faker->realText(2500),
-                'user_id' => $faker->randomElement($users),
-                'channel_id' => $faker->randomElement($channels),
-                'created_at' => $faker->dateTimeBetween($startDate = '-10 days', $endDate = '-5 days'),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now')
-            ]);
-        }
         
+        factory(App\Post::class, 25)
+            ->create()
+            ->each(function($post) {
+                foreach (range(1,rand(0,10)) as $index) {
+                    $post->comments()->save(factory(App\Comment::class)->make());
+                }
+        });
     }
 }
