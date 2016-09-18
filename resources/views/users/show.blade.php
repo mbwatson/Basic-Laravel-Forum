@@ -19,7 +19,14 @@
                     Location: {{ $user->location }} <br>
                     Email: {{ $user->email }} <br>
                     <hr>
-                    {{ $user->posts->count() }} Posts
+                    @if (count($user->posts) > 0)
+                        <h4>{{ $user->posts->count() }} Posts</h4>
+                        @foreach ($user->posts as $post)
+                            {{ $post->created_at->toFormattedDateString() }} - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
+                        @endforeach
+                    @else
+                        No Posts!
+                    @endif
                 </td>
             </tr>
         </table>
