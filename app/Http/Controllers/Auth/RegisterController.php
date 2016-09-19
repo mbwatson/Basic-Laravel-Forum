@@ -6,6 +6,8 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\Welcome;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -62,6 +64,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Mail::to($data['email'])->send(new Welcome);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

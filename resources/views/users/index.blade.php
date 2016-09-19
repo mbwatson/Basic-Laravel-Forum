@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('breadcrumbs', Breadcrumbs::render('users.index'))
+
 @section('content')
     <div class="col-xs-12">
         <div class="panel panel-default">

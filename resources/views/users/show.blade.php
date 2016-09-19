@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('breadcrumbs', Breadcrumbs::render('users.show', $user))
+
 @section('content')
     <div class="col-xs-12">
         <div class="panel panel-default">
@@ -35,7 +37,7 @@
                                  - Commented on <a href="{{ route('posts.show', $comment->post) }}">{{ $comment->post->title }}</a><br>
                             @endforeach
                         @else
-                            No Posts!
+                            No Comments!
                         @endif
                     </td>
                 </tr>
