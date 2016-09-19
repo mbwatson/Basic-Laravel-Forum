@@ -6207,4 +6207,8 @@ textarea {
 .channel-inactive:hover {
   border-left-width: 15px; }
 
+.pagination li a {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease; }
+
 /*# sourceMappingURL=app.css.map */

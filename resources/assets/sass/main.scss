@@ -107,3 +107,10 @@ textarea {
 	border-left-width: 15px;
 }
 
+.pagination {
+	li {
+		a {
+			transition: background-color 0.5s ease;
+		}
+	}
+}

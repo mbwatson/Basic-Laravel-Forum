@@ -21,7 +21,18 @@
                         @if (count($user->posts) > 0)
                             <h4>{{ $user->posts->count() }} Posts</h4>
                             @foreach ($user->posts as $post)
-                                {{ $post->created_at->toFormattedDateString() }} - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
+                                {{ $post->created_at->toFormattedDateString() }}
+                                 - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
+                            @endforeach
+                        @else
+                            No Posts!
+                        @endif
+                        <hr>
+                        @if (count($user->comments) > 0)
+                            <h4>{{ $user->comments->count() }} Comments</h4>
+                            @foreach ($user->comments as $comment)
+                                {{ $comment->created_at->toFormattedDateString() }}
+                                 - Commented on <a href="{{ route('posts.show', $comment->post) }}">{{ $comment->post->title }}</a><br>
                             @endforeach
                         @else
                             No Posts!
