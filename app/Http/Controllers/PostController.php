@@ -20,10 +20,23 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index(Request $request) {
+
+        $filters = $request->only('group');
+        
+        switch ($filters['group']) {
+            case 'my_favorites':
+                $posts = Auth::user()->favorites();
+                $breadcrumb = 'posts.favorites';
+                break;
+            default:
+                $posts = Post::query();
+                $breadcrumb = 'posts.index';
+        }
     	return view('posts.index', [
-            'posts' => Post::latest()->paginate(config('global.perPage')),
-            'channels' => Channel::orderBy('title')->get()
+            'posts' => $posts->latest('created_at')->paginate(config('global.perPage')),
+            'channels' => Channel::orderBy('title')->get(),
+            'filters' => $filters
         ]);
     }
 

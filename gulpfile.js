@@ -18,5 +18,8 @@ elixir(mix => {
         	'app.scss',
         	'main.scss'
         ])
-       .webpack('app.js');
+       .webpack([
+       		'app.js',
+       		'favorites.js'
+       	]);
 });

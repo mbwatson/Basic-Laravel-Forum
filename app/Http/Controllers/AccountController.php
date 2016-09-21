@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 use Auth;
 
 class AccountController extends Controller
@@ -46,5 +47,20 @@ class AccountController extends Controller
 
         return view('auth.edit');
     }
-}
 
+    /**
+     * Toggle favorite post.
+     * 
+     * @param Integer $id
+     */
+    public function toggleFavorite(Post $post)
+    {
+        if ($post->favorites->contains(Auth::user())){
+            Auth::user()->favorites()->detach($post->id);
+            return response()->json(['message' => 'Un-favorited post!']);
+        } else {
+            Auth::user()->favorites()->attach($post->id);
+            return response()->json(['message' => 'Favorited post!']);
+        }
+    }
+}

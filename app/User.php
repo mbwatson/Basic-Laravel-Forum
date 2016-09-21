@@ -83,4 +83,14 @@ class User extends Authenticatable
     {
         return $this->first_name . " " . $this->last_name;
     }
+
+    /**
+     * Retrieve user's favorite questions
+     * 
+     * @return 
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Post', 'favorites')->withTimestamps();
+    }
 }

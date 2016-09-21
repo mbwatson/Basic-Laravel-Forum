@@ -93,4 +93,14 @@ class Post extends Model
     {
         return Post::latest('created_at')->where('channel_id', $channel->id);
     }
+
+    /**
+     * Return users who have favorited this post.
+     *
+     * @return Illuminate\Database\Eloquent\Builder
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany('App\User', 'favorites')->withTimestamps();
+    }
 }

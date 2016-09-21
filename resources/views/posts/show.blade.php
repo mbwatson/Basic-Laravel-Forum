@@ -10,6 +10,16 @@
                     <tr>
                         <td class="title" colspan="2">
                             {{ $post->title }}
+                            <span>
+                            <!-- (Un)Favorite Button -->
+                            @if ($post->favorites->contains(Auth::user()))
+                                <a href="{{ route('posts.favorite', $post) }}" role="button" class="favorite text-danger"
+                                title="Remove from Favorites" data-toggle="tooltip" data-placement="top">+</a>
+                            @else
+                                <a href="{{ route('posts.favorite', $post) }}" role="button" class="favorite text-muted"
+                                title="Add to Favorites" data-toggle="tooltip" data-placement="top">+</a>
+                            @endif
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -69,4 +79,9 @@
             {!! Form::close() !!}
         </div>
     </div>
+@endsection
+
+@section('footer')
+    <!-- Interaction JS -->
+    <!-- <script type="text/javascript" src="{{ asset('src/js/favorites.js') }}"></script> -->
 @endsection

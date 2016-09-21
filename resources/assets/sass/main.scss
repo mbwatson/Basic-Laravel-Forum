@@ -7,7 +7,6 @@
 	}
 }
 
-
 .avatar {
 	border-radius: 50%;
 }
@@ -88,24 +87,22 @@ textarea {
 .btn {
 	transition: all 0.25s ease;
 }
-.btn-channel {
+
+.btn-filter, .btn-channel {
 	text-align: left;
 	border-width: 0 0 0 10px;
 	box-shadow: 0 0 2px #999;
 }
 
+.channel-active { border-left-width: 15px; }
+.channel-active:hover { border-left-width: 5px; }
+.channel-inactive { border-left-width: 5px; }
+.channel-inactive:hover { border-left-width: 15px; }
 
-.channel-active {
-	border-left-width: 15px;
-}
-
-.channel-inactive {
-	border-left-width: 10px;
-}
-
-.channel-inactive:hover {
-	border-left-width: 15px;
-}
+.filter-active { border-left-width: 15px; }
+.filter-active:hover { border-left-width: 5px; }
+.filter-inactive { border-left-width: 5px; }
+.filter-inactive:hover { border-left-width: 15px; }
 
 .pagination {
 	li {

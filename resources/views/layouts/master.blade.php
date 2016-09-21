@@ -18,6 +18,19 @@
         window.Laravel = <?php echo json_encode([ 'csrfToken' => csrf_token() ]); ?>
     </script>
 
+</head>
+<body>
+    @include('partials.nav')
+    <div class="container">
+        <div class="row">
+            @yield('breadcrumbs')
+            @include('partials.alerts')
+            @yield('content')
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
     <!-- MathJax -->
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
@@ -37,18 +50,5 @@
             });
         });
     </script>
-</head>
-<body>
-    @include('partials.nav')
-    <div class="container">
-        <div class="row">
-            @yield('breadcrumbs')
-            @include('partials.alerts')
-            @yield('content')
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
 </body>
 </html>

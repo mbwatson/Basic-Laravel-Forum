@@ -19,7 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/posts/channels/{channel}', [ 'uses' => 'PostController@showPostsInChannel', 'as' => 'posts.channel' ]);
+// Favorite Route
+Route::get('/posts/{posts}/favorite',	[ 'uses' => 'AccountController@toggleFavorite', 'as' => 'posts.favorite' ]);
+Route::get('/posts/channels/{channel}',	[ 'uses' => 'PostController@showPostsInChannel', 'as' => 'posts.channel' ]);
 Route::resource('/posts', 'PostController');
 
 Route::resource('/comments', 'CommentController', [
