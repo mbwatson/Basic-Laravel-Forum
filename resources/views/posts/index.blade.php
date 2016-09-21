@@ -43,6 +43,11 @@
         @else
             <a class="btn btn-block btn-default btn-filter filter-inactive" href="{{ route('posts.index', ['group' => 'popular']) }}">Popular</a>
         @endif
+        @if (isset($filters['group']) && $filters['group'] == 'trending')
+            <a class="btn btn-block btn-default btn-filter filter-active" href="{{ route('posts.index') }}">Trending</a>
+        @else
+            <a class="btn btn-block btn-default btn-filter filter-inactive" href="{{ route('posts.index', ['group' => 'trending']) }}">Trending</a>
+        @endif
 
     </div>
     <div class="col-xs-12 col-sm-10 posts">

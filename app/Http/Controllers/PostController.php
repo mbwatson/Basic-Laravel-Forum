@@ -29,6 +29,10 @@ class PostController extends Controller
                 $posts = Auth::user()->favorites();
                 $breadcrumb = 'posts.favorites';
                 break;
+            case 'trending':
+                $posts = Post::query();
+                $breadcrumb = 'posts.trending';
+                break;
             default:
                 $posts = Post::query();
                 $breadcrumb = 'posts.index';
@@ -36,6 +40,7 @@ class PostController extends Controller
     	return view('posts.index', [
             'posts' => $posts->latest('created_at')->paginate(config('global.perPage')),
             'channels' => Channel::orderBy('title')->get(),
+            'breadcrumbs' => $breadcrumb,
             'filters' => $filters
         ]);
     }

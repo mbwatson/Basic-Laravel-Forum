@@ -19,6 +19,11 @@ Breadcrumbs::register('posts.channel', function($breadcrumbs, $channel) {
 	$breadcrumbs->parent('posts.index');
 	$breadcrumbs->push($channel->title, route('posts.channel', $channel));
 });
+// Forum / Favorites
+Breadcrumbs::register('posts.favorites', function($breadcrumbs) {
+	$breadcrumbs->parent('posts.index');
+	$breadcrumbs->push('Favorites', route('posts.favorites'));
+});
 // Forum / Some Post
 Breadcrumbs::register('posts.show', function($breadcrumbs, $post) {
 	$breadcrumbs->parent('posts.channel', $post->channel);
