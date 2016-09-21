@@ -20,6 +20,18 @@
                         Location: {{ $user->location }} <br>
                         Email: {{ $user->email }} <br>
                         <hr>
+                        <h3>Favorites</h3>
+                        @if (count($user->favorites) > 0)
+                            <h4>{{ $user->favorites->count() }} Favorite Posts</h4>
+                            @foreach ($user->favorites as $post)
+                                {{ $post->created_at->toFormattedDateString() }}
+                                 - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
+                            @endforeach
+                        @else
+                            No Posts!
+                        @endif
+                        <hr>
+                        <h3>Participation</h3>
                         @if (count($user->posts) > 0)
                             <h4>{{ $user->posts->count() }} Posts</h4>
                             @foreach ($user->posts as $post)
