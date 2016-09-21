@@ -10,14 +10,14 @@
                     <tr>
                         <td class="title" colspan="2">
                             {{ $post->title }}
-                            <span>
+                            <span class="pull-right">
                             <!-- (Un)Favorite Button -->
                             @if ($post->favorites->contains(Auth::user()))
                                 <a href="{{ route('posts.favorite', $post) }}" role="button" class="favorite text-danger"
-                                title="Remove from Favorites" data-toggle="tooltip" data-placement="top">+</a>
+                                title="Remove from Favorites" data-toggle="tooltip" data-placement="top">&#9829;</a>
                             @else
                                 <a href="{{ route('posts.favorite', $post) }}" role="button" class="favorite text-muted"
-                                title="Add to Favorites" data-toggle="tooltip" data-placement="top">+</a>
+                                title="Add to Favorites" data-toggle="tooltip" data-placement="top">&#9829;</a>
                             @endif
                             </span>
                         </td>

@@ -6154,8 +6154,10 @@ article.post .avatar {
 article.post .title {
   font-size: 300%;
   width: 100%;
-  padding-left: 20px;
-  padding-bottom: 1px; }
+  padding: 0 20px 1px 20px; }
+
+article.post .favorite {
+  text-decoration: none; }
 
 .comments .post, .posts .post {
   margin-bottom: 5px; }
@@ -6212,6 +6214,9 @@ textarea {
 
 .filter-active {
   border-left-width: 15px; }
+
+.filter-active:hover {
+  border-left-width: 5px; }
 
 .filter-inactive {
   border-left-width: 5px; }
