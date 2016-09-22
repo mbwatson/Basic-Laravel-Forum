@@ -93,4 +93,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Post', 'favorites')->withTimestamps();
     }
+
+    /**
+     * Retrieve user's activities
+     * 
+     * @return 
+     */
+    public function activities()
+    {
+        $posts = collect($this->posts);
+        $comments = collect($this->comments);
+        return $posts->merge($comments)->sortByDesc('created_at');
+    }
 }

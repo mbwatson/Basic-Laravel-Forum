@@ -19,41 +19,41 @@
                         Name: {{ $user->full_name }} <br>
                         Location: {{ $user->location }} <br>
                         Email: {{ $user->email }} <br>
-                        <hr>
-                        <h3>Favorites</h3>
-                        @if (count($user->favorites) > 0)
-                            <h4>{{ $user->favorites->count() }} Favorite Posts</h4>
-                            @foreach ($user->favorites as $post)
-                                {{ $post->created_at->toFormattedDateString() }}
-                                 - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
-                            @endforeach
-                        @else
-                            No Posts!
-                        @endif
-                        <hr>
-                        <h3>Participation</h3>
-                        @if (count($user->posts) > 0)
-                            <h4>{{ $user->posts->count() }} Posts</h4>
-                            @foreach ($user->posts as $post)
-                                {{ $post->created_at->toFormattedDateString() }}
-                                 - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
-                            @endforeach
-                        @else
-                            No Posts!
-                        @endif
-                        <hr>
-                        @if (count($user->comments) > 0)
-                            <h4>{{ $user->comments->count() }} Comments</h4>
-                            @foreach ($user->comments as $comment)
-                                {{ $comment->created_at->toFormattedDateString() }}
-                                 - Commented on <a href="{{ route('posts.show', $comment->post) }}">{{ $comment->post->title }}</a><br>
-                            @endforeach
-                        @else
-                            No Comments!
-                        @endif
                     </td>
                 </tr>
             </table>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Favorites</div>
+            <div class="panel-body">
+                @if (count($user->favorites) > 0)
+                    @foreach ($user->favorites as $post)
+                        {{ $post->created_at->toFormattedDateString() }}
+                         - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
+                    @endforeach
+                @else
+                    No Posts!
+                @endif
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Participation</div>
+            <div class="panel-body">
+                @if (count($user->activities()) > 0)
+                    @foreach ($user->activities() as $activity)
+                        @if (preg_match('/Post/', get_class($activity)))
+                            {{ $activity->created_at->toFormattedDateString() }}
+                            - Posted <a href="{{ route('posts.show', $activity) }}">{{ $activity->title }}</a><br>
+                        @elseif (preg_match('/Comment/', get_class($activity)))
+                            {{ $activity->created_at->toFormattedDateString() }}
+                            - Commented on the post <a href="{{ route('posts.show', $activity->post) }}">{{ $activity->post->title }}</a><br>
+                        @endif
+                    @endforeach
+                @endif
+            </div>
+        </div>
+
     </div>
 @endsection

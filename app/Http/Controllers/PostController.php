@@ -29,10 +29,6 @@ class PostController extends Controller
                 $posts = Auth::user()->favorites();
                 $breadcrumb = 'posts.favorites';
                 break;
-            case 'trending':
-                $posts = Post::query();
-                $breadcrumb = 'posts.trending';
-                break;
             default:
                 $posts = Post::query();
                 $breadcrumb = 'posts.index';
@@ -157,4 +153,5 @@ class PostController extends Controller
 
         return redirect()->route('posts.index');
     }
+
 }

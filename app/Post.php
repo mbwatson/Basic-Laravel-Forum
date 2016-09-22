@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
+use \DB;
 
 class Post extends Model
 {
@@ -91,7 +93,7 @@ class Post extends Model
      */
     public function scopeInChannel($query, Channel $channel)
     {
-        return Post::latest('created_at')->where('channel_id', $channel->id);
+        return $query->latest('created_at')->where('channel_id', $channel->id);
     }
 
     /**
@@ -103,4 +105,5 @@ class Post extends Model
     {
         return $this->belongsToMany('App\User', 'favorites')->withTimestamps();
     }
+
 }
