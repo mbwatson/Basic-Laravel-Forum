@@ -24,7 +24,7 @@
             </table>
         </div>
 
-        <h3>Recent Activity</h3>
+        <h5>Recent Activity</h5>
         
         <div class="posts">
             <div class="panel panel-default">
