@@ -6,7 +6,11 @@
     @if ( isset($channel) )
         {!! Breadcrumbs::render('posts.channel', $channel) !!}
     @else
-        {!! Breadcrumbs::render('posts.all') !!}
+        @if ( isset($filters['group']) )
+            {!! Breadcrumbs::render('posts.favorites') !!}
+        @else
+            {!! Breadcrumbs::render('posts.all') !!}
+        @endif
     @endif
 @endsection
 

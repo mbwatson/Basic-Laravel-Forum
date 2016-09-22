@@ -22,7 +22,7 @@ Breadcrumbs::register('posts.channel', function($breadcrumbs, $channel) {
 // Forum / Favorites
 Breadcrumbs::register('posts.favorites', function($breadcrumbs) {
 	$breadcrumbs->parent('posts.index');
-	$breadcrumbs->push('Favorites', route('posts.favorites'));
+	$breadcrumbs->push('My Favorites');
 });
 // Forum / Some Post
 Breadcrumbs::register('posts.show', function($breadcrumbs, $post) {
