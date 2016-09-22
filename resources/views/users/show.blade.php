@@ -24,36 +24,29 @@
             </table>
         </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">Favorites</div>
-            <div class="panel-body">
-                @if (count($user->favorites) > 0)
-                    @foreach ($user->favorites as $post)
-                        {{ $post->created_at->toFormattedDateString() }}
-                         - <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a><br>
-                    @endforeach
-                @else
-                    No Posts!
-                @endif
+        <h3>Recent Activity</h3>
+        
+        <div class="posts">
+            <div class="panel panel-default">
+                <div class="panel-body"> 
+                    @if (count($user->activities()) > 0)
+                        @foreach ($user->activities(10) as $activity)
+                            <div style="padding: 10px;">
+                                {{ get_class($activity) }}
+                                @if (preg_match('/Post/', get_class($activity)))
+                                    {{ $activity->created_at->toFormattedDateString() }}
+                                    - Posted <a href="{{ route('posts.show', $activity) }}">{{ $activity->title }}</a><br>
+                                @elseif (preg_match('/Comment/', get_class($activity)))
+                                    {{ $activity->created_at->toFormattedDateString() }}
+                                    - Commented on the post <a href="{{ route('posts.show', $activity->post) }}">{{ $activity->post->title }}</a><br>
+                                @endif
+                            </div>
+                        @endforeach
+                    @else
+                        No recent activity... <i>yet</i>!
+                    @endif
+                </div>
             </div>
         </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">Recent Activity</div>
-            <div class="panel-body">
-                @if (count($user->activities()) > 0)
-                    @foreach ($user->activities(10) as $activity)
-                        @if (preg_match('/Post/', get_class($activity)))
-                            {{ $activity->created_at->toFormattedDateString() }}
-                            - Posted <a href="{{ route('posts.show', $activity) }}">{{ $activity->title }}</a><br>
-                        @elseif (preg_match('/Comment/', get_class($activity)))
-                            {{ $activity->created_at->toFormattedDateString() }}
-                            - Commented on the post <a href="{{ route('posts.show', $activity->post) }}">{{ $activity->post->title }}</a><br>
-                        @endif
-                    @endforeach
-                @endif
-            </div>
-        </div>
-
     </div>
 @endsection

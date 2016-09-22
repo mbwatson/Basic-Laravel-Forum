@@ -36,6 +36,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ route('users.show', Auth::user()) }}">My Profile</a></li>
+                            <li><a href="{{ route('posts.index', ['group' => 'favorites']) }}">My Favorites</a></li>
                             <li><a href="{{ route('account.edit') }}">Settings</a></li>
                             <li role="separator" class="divider"></li>
                             @if (Auth::user()->admin)
