@@ -91,7 +91,7 @@ class User extends Authenticatable
      */
     public function favorites()
     {
-        return $this->belongsToMany('App\Post', 'favorites')->withTimestamps();
+        return $this->belongsToMany('App\Post', 'favorites')->latest()->withTimestamps();
     }
 
     /**
