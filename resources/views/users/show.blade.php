@@ -32,7 +32,6 @@
                     @if (count($user->activities()) > 0)
                         @foreach ($user->activities(10) as $activity)
                             <div style="padding: 10px;">
-                                {{ get_class($activity) }}
                                 @if (preg_match('/Post/', get_class($activity)))
                                     {{ $activity->created_at->toFormattedDateString() }}
                                     - Posted <a href="{{ route('posts.show', $activity) }}">{{ $activity->title }}</a><br>
