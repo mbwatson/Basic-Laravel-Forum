@@ -99,10 +99,10 @@ class User extends Authenticatable
      * 
      * @return 
      */
-    public function activities()
+    public function activities($numberOfActivities = 5)
     {
         $posts = collect($this->posts);
         $comments = collect($this->comments);
-        return $posts->merge($comments)->sortByDesc('created_at');
+        return $posts->merge($comments)->sortByDesc('created_at')->take($numberOfActivities);
     }
 }

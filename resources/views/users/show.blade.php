@@ -39,10 +39,10 @@
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading">Participation</div>
+            <div class="panel-heading">Recent Activity</div>
             <div class="panel-body">
                 @if (count($user->activities()) > 0)
-                    @foreach ($user->activities() as $activity)
+                    @foreach ($user->activities(10) as $activity)
                         @if (preg_match('/Post/', get_class($activity)))
                             {{ $activity->created_at->toFormattedDateString() }}
                             - Posted <a href="{{ route('posts.show', $activity) }}">{{ $activity->title }}</a><br>
