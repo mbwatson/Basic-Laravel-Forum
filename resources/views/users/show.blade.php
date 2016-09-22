@@ -11,7 +11,7 @@
                         <img src="{{ Gravatar::get($user->email, ['size' => 120]) }}" class="avatar">
                     </td>
                     <td class="title" colspan="2">
-                        {{ $user->name }}
+                        {{ $user->name }} {{ $user->admin ? '&#128219;' : '' }}
                     </td>
                 </tr>
                 <tr>
