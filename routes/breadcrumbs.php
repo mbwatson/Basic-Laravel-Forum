@@ -37,7 +37,7 @@ Breadcrumbs::register('posts.edit', function($breadcrumbs, $post) {
 
 // Users
 Breadcrumbs::register('users.index', function($breadcrumbs) {
-	$breadcrumbs->push('Users');
+	$breadcrumbs->push('Users', route('users.index'));
 });
 // Users / A User
 Breadcrumbs::register('users.show', function($breadcrumbs, $user) {
